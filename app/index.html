@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Repertoire</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="CSS/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="app.module.js"></script>
+  </head>
+  <body>
+
+  <div ng-app="myApp">
+      <div ng-controller="MainCtrl">
+         <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Appli Repertoire</a>
+            </div>
+            <ul class="nav navbar-nav">
+              <li><a href="#/">Accueil</a></li>
+              <li><a href="#/contacts">Contacts</a></li>
+            </ul>
+          </div>
+        </nav>
+      <div ng-view class="content"></div>
+  </div>
+  </body>
+</html>

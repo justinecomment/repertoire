@@ -1,0 +1,23 @@
+<div class="content">
+    <table class="content table-hover">
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Emails</th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="contact in contacts">
+            <td>{{contact.Name}}</td>
+            <td>{{contact.lastname}}</td>
+            <td>{{contact.email}}</td>
+            <td><i class="fa fa-times" aria-hidden="true"></i></td>
+        </tr>
+    </table>
+    <a href="#/add" class="rond btn btn-info">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+    </a>
+</div>
+
+<div ng-init="fetch()">
+    {{data}}
+</div>

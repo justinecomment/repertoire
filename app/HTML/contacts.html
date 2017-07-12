@@ -6,9 +6,9 @@
             <th>Emails</th>
             <th></th>
         </tr>
-        <tr ng-repeat="contact in contacts">
-            <td>{{contact.Name}}</td>
-            <td>{{contact.lastname}}</td>
+        <tr ng-repeat="contact in monContact">
+            <td>{{contact.nom}}</td>
+            <td>{{contact.prenom}}</td>
             <td>{{contact.email}}</td>
             <td><i class="fa fa-times" aria-hidden="true"></i></td>
         </tr>
@@ -16,8 +16,4 @@
     <a href="#/add" class="rond btn btn-info">
         <i class="fa fa-plus" aria-hidden="true"></i>
     </a>
-</div>
-
-<div ng-init="fetch()">
-    {{data}}
 </div>

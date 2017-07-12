@@ -1,11 +1,11 @@
 <form name="myAddForm" ng-submit="validateForm()" class="addForm" novalidate>
-    <input type="text" name="nom" ng-model="nom" placeholder="nom" required><br>
+    <input type="text" ng-model="nom" placeholder="nom" required><br>
     <div ng-show="myAddForm.nom.$error.required" ng-if="myAddForm.$submitted" class="error">Le nom est requis</div>
 
-    <input type="text" name="prenom" ng-model="prenom" placeholder="prenom" required><br>
+    <input type="text" ng-model="prenom" placeholder="prenom" required><br>
     <div ng-show="myAddForm.prenom.$error.required" ng-if="myAddForm.$submitted" class="error">Le prenom est requis</div>
 
-    <input type="text" name="email" ng-model="email" placeholder="email" required><br>
+    <input type="text" ng-model="email" placeholder="email" required><br>
     <div ng-show="myAddForm.email.$error.required" ng-if="myAddForm.$submitted" class="error">L'email est requis</div>
 
     <input type="submit" class="ajouter btn btn-info" placeholder="AJOUTER" >

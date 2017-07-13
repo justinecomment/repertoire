@@ -20,7 +20,7 @@ myApp.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 
-myApp.service('getAllContacts',function($http, $rootScope, ) {
+myApp.service('getAllContacts',function($http) {
   this.getContacts = function(){
     return $http.get('http://localhost/repertoire/contacts.php').success(function(result){
         return result;
@@ -29,24 +29,39 @@ myApp.service('getAllContacts',function($http, $rootScope, ) {
 });
 
 
-myApp.controller('MainCtrl',function ($scope) {
-  
+myApp.controller('MainCtrl',function ($scope, getAllContacts, $http) {
+   getAllContacts.getContacts().then(function(response) {
+      $scope.totalEmail  =response.data.length;
+   })
 });
 
-myApp.controller('contactCtrl', function($scope,getAllContacts) { 
+myApp.controller('contactCtrl', function($scope, getAllContacts, $http) { 
    getAllContacts.getContacts().then(function(response) {
-           console.log(response.data)
-            $scope.monContact  = response.data;
-        }),function(error){
-            return error;
-        };
+      console.log(response)
+      $scope.monContact  = response.data;
+   })
 });
  
 myApp.controller('addCtrl' ,function($scope, $http, $location){
   $scope.validateForm = function(){
     if($scope.myAddForm.$valid == true){
-        console.log("valid");
-        $location.path('/contacts');
-    }
+       var formData = {
+            'nom' :  $scope.nom,
+            'prenom' : $scope.prenom,
+            'email' : $scope.email,
+        };
+
+      $http({ 
+        url: 'http://localhost/repertoire/contacts.php', 
+        dataType: 'json', 
+        method: 'POST', 
+        data: formData,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      alert("nouveau contact crée");
+      $location.path('/contacts');
+    };
   }
 });

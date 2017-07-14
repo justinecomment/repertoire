@@ -20,47 +20,51 @@ myApp.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 
-myApp.service('getAllContacts',function($http) {
+myApp.service('contactsService',function($http) {
   this.getContacts = function(){
     return $http.get('http://localhost/repertoire/contacts.php').success(function(result){
         return result;
     })
   };
+
+  this.postContact = function(dataAPoster){
+    return $http({ 
+        url: 'http://localhost/repertoire/contacts.php', 
+        dataType: 'json', 
+        method: 'POST', 
+        data: dataAPoster,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+    })
+  }
+
 });
 
 
-myApp.controller('MainCtrl',function ($scope, getAllContacts, $http) {
-   getAllContacts.getContacts().then(function(response) {
+myApp.controller('MainCtrl',function ($scope, contactsService, $http) {
+   contactsService.getContacts().then(function(response) {
       $scope.totalEmail  =response.data.length;
    })
 });
 
-myApp.controller('contactCtrl', function($scope, getAllContacts, $http) { 
-   getAllContacts.getContacts().then(function(response) {
-      console.log(response)
+myApp.controller('contactCtrl', function($scope, contactsService, $http) { 
+   contactsService.getContacts().then(function(response) {
       $scope.monContact  = response.data;
    })
 });
  
-myApp.controller('addCtrl' ,function($scope, $http, $location){
+myApp.controller('addCtrl' ,function($scope, $http, $location, contactsService){
   $scope.validateForm = function(){
     if($scope.myAddForm.$valid == true){
-       var formData = {
+      var formData = {
             'nom' :  $scope.nom,
             'prenom' : $scope.prenom,
             'email' : $scope.email,
         };
-
-      $http({ 
-        url: 'http://localhost/repertoire/contacts.php', 
-        dataType: 'json', 
-        method: 'POST', 
-        data: formData,
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
+      contactsService.postContact(formData);
       alert("nouveau contact crée");
+      contactsService.getContacts()
       $location.path('/contacts');
     };
   }

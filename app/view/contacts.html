@@ -1,19 +1,25 @@
 <div class="content">
     <table class="content table-hover">
         <tr>
+            <th>Id</th>
             <th>Nom</th>
             <th>Prenom</th>
             <th>Emails</th>
             <th></th>
         </tr>
-        <tr ng-repeat="contact in monContact">
-            <td>{{contact.nom}}</td>
-            <td>{{contact.prenom}}</td>
-            <td>{{contact.email}}</td>
-            <td><i class="fa fa-times" aria-hidden="true"></i></td>
+        <tr ng-repeat="contact in contactList">
+            <td ng-model="id">{{contact.id}}</td>
+            <td ng-model="nom">{{contact.nom}}</td>
+            <td ng-model="prenom">{{contact.prenom}}</td>
+            <td ng-model="email">{{contact.email}}</td>
+            <td ng-click="deleteContact(index)"><i class="fa fa-times" aria-hidden="true"></i></td>
         </tr>
     </table>
     <a href="#/add" class="rond btn btn-info">
         <i class="fa fa-plus" aria-hidden="true"></i>
     </a>
+
+    
 </div>
+
+

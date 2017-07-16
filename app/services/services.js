@@ -1,7 +1,7 @@
 myApp.service('contactsService',function($http) {
-  this.getContacts = function(){
+    this.getContacts = function(){
     return $http.get('http://localhost/repertoire/contacts.php').success(function(result){
-        return result;
+      JSON.stringify(result);
     })
   };
 
@@ -16,4 +16,6 @@ myApp.service('contactsService',function($http) {
         }
     })
   }
+
+
 });

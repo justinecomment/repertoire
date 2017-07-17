@@ -7,9 +7,9 @@ myApp.service('contactsService',function($http) {
 
   this.postContact = function(dataToPost){
     return $http({ 
+        method: 'POST', 
         url: 'http://localhost/repertoire/contacts.php', 
         dataType: 'json', 
-        method: 'POST', 
         data: dataToPost,
         headers: {
           'Content-Type': 'application/json'
@@ -17,5 +17,13 @@ myApp.service('contactsService',function($http) {
     })
   }
 
+  this.deleteContact = function(index){
+    return $http({
+      method  : 'DELETE',
+      url: 'http://localhost/repertoire/contacts.php?id=' + index,
+      data    : {"id":  index },
+      headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+    })
+  }
 
 });

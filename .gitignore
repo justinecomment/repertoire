@@ -5,4 +5,7 @@ tmp
 .idea
 .DS_Store
 bower_components/
-npm-debug.log.3193821736
+npm-debug.log*
+.gitignore
+.travis.yml
+karma.conf.js

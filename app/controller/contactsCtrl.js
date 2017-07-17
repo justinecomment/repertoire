@@ -17,5 +17,11 @@ myApp.controller('contactsCtrl', function($scope, contactsService, $http, $windo
             });
         }
    }
+
+    $scope.editContact = function(){
+        contactsService.getPersonne(this.contact)
+        contactsService.savePersonne(this.contact)
+    }
+
 });
  

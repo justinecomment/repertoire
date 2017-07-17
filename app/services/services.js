@@ -1,14 +1,40 @@
 myApp.service('contactsService',function($http) {
-    this.getContacts = function(){
-    return $http.get('http://localhost/repertoire/contacts.php').success(function(result){
+
+  const baseUrl = 'http://localhost/repertoire';
+  var personneSaved;
+  
+
+  this.getPersonne = function(personne){
+     return personne;
+  }
+
+  this.savePersonne = function(personne){
+    personneSaved = personne;
+  }
+
+  this.getPersonneSaved = function(){
+    return personneSaved;
+  }
+
+
+  this.getContacts = function(){
+    return $http.get(baseUrl + '/contacts.php').success(function(result){
       JSON.stringify(result);
     })
   };
 
+
+  this.getSingleContact = function(index){
+    return $http.get(baseUrl + '/contacts.php?personne=' + index).success(function (result){
+      this.personne = JSON.stringify(result);
+    })
+  }
+
+
   this.postContact = function(dataToPost){
     return $http({ 
         method: 'POST', 
-        url: 'http://localhost/repertoire/contacts.php', 
+        url: baseUrl + '/contacts.php', 
         dataType: 'json', 
         data: dataToPost,
         headers: {
@@ -20,10 +46,12 @@ myApp.service('contactsService',function($http) {
   this.deleteContact = function(index){
     return $http({
       method  : 'DELETE',
-      url: 'http://localhost/repertoire/contacts.php?id=' + index,
+      url: baseUrl + '/contacts.php?id=' + index,
       data    : {"id":  index },
       headers : {'Content-Type': 'application/x-www-form-urlencoded'}
     })
   }
+
+
 
 });

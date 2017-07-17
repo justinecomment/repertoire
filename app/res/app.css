@@ -60,3 +60,10 @@ table{
 .error{
     color: red;
 }
+
+a{
+    color: #000;
+}
+a:hover{
+    text-decoration:none;
+}

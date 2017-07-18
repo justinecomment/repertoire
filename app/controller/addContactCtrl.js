@@ -8,8 +8,17 @@ myApp.controller('addContactCtrl' ,function($scope, $http, $location, contactsSe
         };
       contactsService.postContact(formData);
       alert("nouveau contact crée");
-      contactsService.getContacts()
+      contactsService.getContacts();
       $location.path('/contacts');
-    };
+    }
+    else{
+      console.log("error");
+      $scope.myAddForm.$valid = false;
+    }
+  }
+
+  $scope.onClickCancel = function(){
+     $location.path('/contacts');
   }
 });
+

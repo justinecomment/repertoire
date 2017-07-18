@@ -1,4 +1,6 @@
-<form name="myEditForm" ng-submit="validateEditForm()" class="addForm" novalidate>
+<form name="myEditForm" ng-submit="UpdateData()" class="addForm" novalidate>
+    <input hidden type="text" ng-model="id" placeholder={{personne.id}}><br>
+
     <input type="text" ng-model="nom" placeholder={{personne.nom}} required><br>
     <div ng-show="myAddForm.nom.$error.required" ng-if="myAddForm.$submitted" class="error">Le nom est requis</div>
 

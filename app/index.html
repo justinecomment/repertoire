@@ -6,15 +6,25 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="res/app.css">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    
+    <!-- AngularJS-->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <!---->
 
+    <!-- lumX-->
+    <script src="bower_components/velocity/velocity.min.js"></script>
+    <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
+    <link rel="stylesheet" href="bower_components/lumx/dist/lumx.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <script src="bower_components/lumx/dist/lumx.js"></script>
+    <!---->
+    
+    <!-- Imports -->
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>
     <script src="services/services.js"></script>
@@ -22,8 +32,9 @@
     <script src="controller/addContactCtrl.js"></script>
     <script src="controller/contactsCtrl.js"></script>
     <script src="controller/editContactCtrl.js"></script>
+    <!---->
   </head>
-  <body>
+<body>
 
   <div ng-app="myApp">
       <div ng-controller="accueilCtrl">
@@ -42,7 +53,7 @@
             </ul>
           </div>
         </nav>
-      <div ng-view class="content"></div>
+      <div ng-view  flex-container="column" class="content"></div>
   </div>
   </body>
 </html>

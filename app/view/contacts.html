@@ -1,7 +1,7 @@
-<div class="content">
-   
-   <form name="searchForm" ng-submit="validSearchForm()" novalidate>
-        <input id="searchBar" type="text" name="searchvalue" ng-model="searchvalue" placeholder="Search..">
+<div class="content" flex-container="column">
+
+   <form name="searchForm" ng-submit="searchContact()" novalidate>
+        <input id="searchBar" title="entrer un contact" type="text" name="searchvalue" ng-model="searchvalue" placeholder="Search..">
    </form>
 
     <table class="content table-hover">
@@ -18,14 +18,13 @@
             <td ng-model="prenom">{{contact.prenom}}</td>
             <td ng-model="email">{{contact.email}}</td>
             <td ng-click="editContact(index)">
-                <a href="#/edit"><i class="fa fa-pencil" aria-hidden="true" uib-tooltip="Editer"></i></a>
+                <a href="#/edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
             </td>
-            <td ng-click="deleteContact(index)"><i class="fa fa-times" aria-hidden="true"  uib-tooltip="Supprimer"></i></td>
+            <td ng-click="deleteContact(index)"><i class="fa fa-times" aria-hidden="true"></i></td>
         </tr>
     </table>
     <a href="#/add" class="rond btn btn-info">
-        <i class="fa fa-plus" aria-hidden="true" uib-tooltip="Nouveau contact"></i>
+        <i class="fa fa-plus" aria-hidden="true"></i>
     </a>
 </div>
-
 

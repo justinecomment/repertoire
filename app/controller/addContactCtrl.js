@@ -7,6 +7,7 @@ myApp.controller('addContactCtrl' ,function($scope, $http, $location, contactsSe
             'email' : $scope.email,
         };
       contactsService.postContact(formData);
+
       alert("nouveau contact crée");
       contactsService.getContacts();
       $location.path('/contacts');

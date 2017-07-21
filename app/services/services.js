@@ -17,18 +17,18 @@ myApp.service('contactsService',function($http) {
   }
 
 
+  this.searchPerson = function(searchvalue){
+    return $http.get(baseUrl + '/contacts.php?search=' + searchvalue).success(function(result){
+      JSON.stringify(result);
+    })
+  }
+
+
   this.getContacts = function(){
     return $http.get(baseUrl + '/contacts.php').success(function(result){
       JSON.stringify(result);
     })
   };
-
-
-  this.getSingleContact = function(index){
-    return $http.get(baseUrl + '/contacts.php?personne=' + index).success(function (result){
-      this.personne = JSON.stringify(result);
-    })
-  }
 
 
   this.postContact = function(dataToPost){

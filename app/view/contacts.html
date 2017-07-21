@@ -1,4 +1,9 @@
 <div class="content">
+   
+   <form name="searchForm" ng-submit="validSearchForm()" novalidate>
+        <input id="searchBar" type="text" name="searchvalue" ng-model="searchvalue" placeholder="Search..">
+   </form>
+
     <table class="content table-hover">
         <tr>
             <th>Id</th>
@@ -7,19 +12,19 @@
             <th>Emails</th>
             <th></th>
         </tr>
-        <tr ng-repeat="contact in contactList">
+        <tr ng-repeat="contact in contactList | filter:searchvalue">
             <td ng-model="id">{{contact.id}}</td>
             <td ng-model="nom">{{contact.nom}}</td>
             <td ng-model="prenom">{{contact.prenom}}</td>
             <td ng-model="email">{{contact.email}}</td>
             <td ng-click="editContact(index)">
-                <a href="#/edit"<i class="fa fa-pencil" aria-hidden="true"></i></a>
+                <a href="#/edit"><i class="fa fa-pencil" aria-hidden="true" uib-tooltip="Editer"></i></a>
             </td>
-            <td ng-click="deleteContact(index)"><i class="fa fa-times" aria-hidden="true"></i></td>
+            <td ng-click="deleteContact(index)"><i class="fa fa-times" aria-hidden="true"  uib-tooltip="Supprimer"></i></td>
         </tr>
     </table>
     <a href="#/add" class="rond btn btn-info">
-        <i class="fa fa-plus" aria-hidden="true"></i>
+        <i class="fa fa-plus" aria-hidden="true" uib-tooltip="Nouveau contact"></i>
     </a>
 </div>
 

@@ -63,3 +63,12 @@ a{
 a:hover{
     text-decoration:none;
 }
+
+#searchBar{
+    margin-bottom:50px;
+    margin-LEFT:55%;
+    border-bottom: solid 3px #c63527;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}

@@ -23,5 +23,10 @@ myApp.controller('contactsCtrl', function($scope, contactsService, $http, $windo
         contactsService.savePersonne(this.contact);
     }
 
+    $scope.validSearchForm = function(){
+        contactsService.searchPerson($scope.searchvalue).then(function(result){
+            $scope.contactSearch = result.data;
+        });
+    }
+
 });
- 

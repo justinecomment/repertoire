@@ -1,8 +1,19 @@
 <div class="content" flex-container="column">
 
-   <form name="searchForm" ng-submit="searchContact()" novalidate>
-        <input id="searchBar" title="entrer un contact" type="text" name="searchvalue" ng-model="searchvalue" placeholder="Search..">
-   </form>
+
+    <!--<form name="searchForm" ng-submit="searchContact()" novalidate>
+        <lx-text-field lx-label="Search">
+            <input id="searchBar" type="text" name="searchValue" ng-model="searchValue" >
+        </lx-text-field>
+    </form>-->
+
+    <div class="card">
+        <form name="searchForm" ng-submit="searchContact()" novalidate>
+            <lx-search-filter lx-label="Search" >
+                <input id="searchBar" type="text" name="searchValue" ng-model="searchValue" >
+            </lx-search-filter>
+        </form>
+    </div>
 
     <table class="content table-hover">
         <tr>
@@ -12,7 +23,7 @@
             <th>Emails</th>
             <th></th>
         </tr>
-        <tr ng-repeat="contact in contactList | filter:searchvalue">
+        <tr ng-repeat="contact in contactList">
             <td ng-model="id">{{contact.id}}</td>
             <td ng-model="nom">{{contact.nom}}</td>
             <td ng-model="prenom">{{contact.prenom}}</td>
@@ -20,11 +31,31 @@
             <td ng-click="editContact(index)">
                 <a href="#/edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
             </td>
-            <td ng-click="deleteContact(index)"><i class="fa fa-times" aria-hidden="true"></i></td>
-        </tr>
+            <td ng-click="deleteContact(index)">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </td>
     </table>
-    <a href="#/add" class="rond btn btn-info">
-        <i class="fa fa-plus" aria-hidden="true"></i>
+
+    <a href="#/add" class="rond">
+        <lx-button lx-type="fab" lx-color="blue"><i class="mdi mdi-plus"></i></lx-button>
     </a>
 </div>
+
+<div class="toolbar has-divider has-divider--dark">
+    <div class="toolbar__label pl">
+        <span>{{ vm.selectedRows.length || 0 }} selected item(s)</span>
+    </div>
+
+    <div class="toolbar__right">
+        <lx-button lx-size="l" lx-color="grey" lx-type="icon" ng-if="vm.selectedRows.length === 1">
+            <i class="mdi mdi-pencil"></i>
+        </lx-button>
+
+        <lx-button lx-size="l" lx-color="grey" lx-type="icon" ng-if="vm.selectedRows.length >= 1">
+            <i class="mdi mdi-delete"></i>
+        </lx-button>
+    </div>
+</div>
+
+<lx-data-table id="lolo" lx-selectable="true" lx-thead="vm.dataTableThead" lx-tbody="vm.dataTableTbody"></lx-data-table>
 

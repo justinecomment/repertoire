@@ -8,6 +8,9 @@
     <input type="text" ng-model="email" name="email" placeholder="email" required><br>
     <span ng-if="myAddForm.$submitted" ng-show="myAddForm.email.$pristine || myAddForm.email.$error.required"  class="error">L'email est requis</span><br>
 
-    <input type="submit" class="ajouter btn btn-info" placeholder="AJOUTER" >
-    <input type="button" class="btn btn-warning" ng-click="onClickCancel()" value="ANNULER">
+    <div>
+        <lx-button lx-color="green" type="submit" >AJOUTER</lx-button>
+        <lx-button lx-color="orange" lx-type="flat"  ng-click="onClickCancel()">Cancel</lx-button>   
+    </div>  
 </form>
+

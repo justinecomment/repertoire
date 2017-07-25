@@ -1,5 +1,8 @@
 
-myApp.controller('contactsCtrl', function($scope, contactsService, $http, $window, $location) { 
+myApp.controller('contactsCtrl', function($scope, contactsService, $http, $window, $location ) {
+
+   $scope.contactList = null;
+
    contactsService.getContacts().then(function(response) {
       $scope.contactList  = response.data;
    })
@@ -13,6 +16,7 @@ myApp.controller('contactsCtrl', function($scope, contactsService, $http, $windo
             contactsService.deleteContact($scope.index).then(function(response) {
                 contactsService.getContacts().then(function(response) {
                     $scope.contactList  = response.data;
+                    
                 });
             });
         }
@@ -24,9 +28,16 @@ myApp.controller('contactsCtrl', function($scope, contactsService, $http, $windo
     }
 
     $scope.searchContact = function(){
-        contactsService.searchPerson($scope.searchvalue).then(function(result){
-            $scope.contactSearch = result.data;
-        });
-    }
+        var stringToFind = $scope.searchForm.searchValue.$modelValue
+        if(stringToFind != null){
+            contactsService.searchPerson(stringToFind).then(function(response){
+            $scope.contactList = response.data;})
+        }
+        else{
+            console.log('get contacts');
+            contactsService.getContacts().then(function(response) {
+                $scope.contactList  = response.data;
+            })
+        }};
 
 });

@@ -1,6 +1,7 @@
-myApp.controller('editContactCtrl', function($scope, $http, contactsService, $location){
+myApp.controller('editContactCtrl', function($scope, $http, contactsService, $location, LxNotificationService){
     
     $scope.personne = contactsService.getPersonneSaved();
+
      $scope.UpdateData = function () {
          if($scope.myEditForm.$valid == true){
             var data = $.param({
@@ -12,21 +13,22 @@ myApp.controller('editContactCtrl', function($scope, $http, contactsService, $lo
 
             $http.put('http://localhost/repertoire/contacts.php?'+ data)
             .success(function (data) {
-                console.log("success " + data);
                 contactsService.getContacts();
                 $location.path('/contacts');
+                LxNotificationService.notify('Modifications enregistrées', undefined, undefined, undefined, undefined, undefined, 2 * 1000);
             })
             .error(function (data) {
                 console.log("error " + data);
             });
-        }
-        else{
-            console.log('not valid');
         }
      }
     
     $scope.onClickCancel = function(){
         contactsService.getContacts();
         $location.path('/contacts');
+        LxNotificationService.notify('Annulé', undefined, undefined, undefined, undefined, undefined, 2 * 1000);
     }
+
 });
+
+

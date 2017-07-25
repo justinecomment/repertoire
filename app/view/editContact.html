@@ -10,8 +10,7 @@
     <input type="text" ng-model="email"  name="email" placeholder={{personne.email}} required><br>
     <span ng-if="myEditForm.$submitted" ng-show="myAddForm.email.$pristine || myEditForm.email.$error.required" class="error">L'email n'a pas changé</span><br>
 
-    <lx-button lx-color="green" type="submit" >AJOUTER</lx-button>
+    <lx-button lx-color="green" type="submit" >Editer</lx-button>
     <lx-button lx-color="orange" lx-type="flat"  ng-click="onClickCancel()">Cancel</lx-button>   
 </form>
-
 

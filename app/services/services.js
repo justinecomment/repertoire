@@ -51,7 +51,4 @@ myApp.service('contactsService',function($http) {
       headers : {'Content-Type': 'application/x-www-form-urlencoded'}
     })
   }
-
-
-
 });

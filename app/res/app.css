@@ -9,6 +9,8 @@ html, body {
     height: 100%;
     display: flex;
     flex-direction: row;
+        padding-bottom: 100px;
+
 }
 
 li{
@@ -20,8 +22,12 @@ span{
 }
 
 td, th{
-    padding: 0px 40px;
+    padding: 0px 40px !important;
     text-align: left;
+}
+
+table tr{
+  height: 30px;
 }
 
 table{
@@ -34,12 +40,6 @@ table{
 }
 .fa-plus{
     padding-top:9px;
-}
-
-.rond{
-    border-radius: 50%;
-    margin:0 auto;
-    margin-top:30px;
 }
 
 .addForm input{
@@ -73,4 +73,20 @@ a:hover{
 
 .searchBar{
     width: 15%;
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: none !important;
+    background-image: none;
+    color: rgb(0, 0, 0);
+}
+
+.addContact{
+    right: 149px;
+    top: 100px;
+    position: absolute;
+}
+
+#delete{
+    cursor:pointer;
 }

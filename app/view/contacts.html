@@ -1,61 +1,40 @@
+<div flex-container="row" class="addContact">
+    <a href="#/add">
+        <lx-button lx-type="fab" lx-color="blue" lx-size="xl"><i class="mdi mdi-plus"></i></lx-button>
+    </a>
+</div>
+
+
 <div class="content" flex-container="column">
-
-
-    <!--<form name="searchForm" ng-submit="searchContact()" novalidate>
-        <lx-text-field lx-label="Search">
-            <input id="searchBar" type="text" name="searchValue" ng-model="searchValue" >
-        </lx-text-field>
-    </form>-->
-
     <div class="card">
         <form name="searchForm" ng-submit="searchContact()" novalidate>
             <lx-search-filter lx-label="Search" >
-                <input id="searchBar" type="text" name="searchValue" ng-model="searchValue" >
+                <input id="searchBar" type="text" name="searchValue" ng-model="searchValue" placeholder="search..." >
             </lx-search-filter>
         </form>
     </div>
 
     <table class="content table-hover">
         <tr>
-            <th>Id</th>
             <th>Nom</th>
             <th>Prenom</th>
             <th>Emails</th>
-            <th></th>
+            <th>Editer</th>
+            <th>Supprimer</th>
         </tr>
         <tr ng-repeat="contact in contactList">
-            <td ng-model="id">{{contact.id}}</td>
             <td ng-model="nom">{{contact.nom}}</td>
             <td ng-model="prenom">{{contact.prenom}}</td>
             <td ng-model="email">{{contact.email}}</td>
             <td ng-click="editContact(index)">
-                <a href="#/edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                <a href="#/edit">
+                    <lx-icon lx-id="pencil" lx-size="xs" lx-color="red" lx-type="flat"></lx-icon>
+                </a>
             </td>
-            <td ng-click="deleteContact(index)">
-                <i class="fa fa-times" aria-hidden="true"></i>
+            <td ng-click="deleteContact()">
+                <lx-icon lx-id="delete" lx-size="xs" lx-color="red" lx-type="flat" id="delete"></lx-icon>
             </td>
     </table>
-
-    <a href="#/add" class="rond">
-        <lx-button lx-type="fab" lx-color="blue"><i class="mdi mdi-plus"></i></lx-button>
-    </a>
 </div>
 
-<div class="toolbar has-divider has-divider--dark">
-    <div class="toolbar__label pl">
-        <span>{{ vm.selectedRows.length || 0 }} selected item(s)</span>
-    </div>
-
-    <div class="toolbar__right">
-        <lx-button lx-size="l" lx-color="grey" lx-type="icon" ng-if="vm.selectedRows.length === 1">
-            <i class="mdi mdi-pencil"></i>
-        </lx-button>
-
-        <lx-button lx-size="l" lx-color="grey" lx-type="icon" ng-if="vm.selectedRows.length >= 1">
-            <i class="mdi mdi-delete"></i>
-        </lx-button>
-    </div>
-</div>
-
-<lx-data-table id="lolo" lx-selectable="true" lx-thead="vm.dataTableThead" lx-tbody="vm.dataTableTbody"></lx-data-table>
 

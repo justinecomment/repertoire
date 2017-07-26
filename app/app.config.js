@@ -16,6 +16,10 @@ myApp.config(['$routeProvider', function ($routeProvider) {
     controller: 'editContactCtrl',
     templateUrl: 'view/editContact.html'
   })
+  .when('/categories',{
+    controller: 'categoriesCtrl',
+    templateUrl: 'view/categories.html'
+  })
   .otherwise({
     redirectTo: '/'
   });

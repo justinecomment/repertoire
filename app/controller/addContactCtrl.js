@@ -1,4 +1,4 @@
-myApp.controller('addContactCtrl' ,function($scope, $http, $location, contactsService){
+myApp.controller('addContactCtrl' ,function($scope, $http, $location, contactsService, LxNotificationService){
   $scope.validateForm = function(){
     if($scope.myAddForm.$valid == true){
       var formData = {
@@ -8,9 +8,10 @@ myApp.controller('addContactCtrl' ,function($scope, $http, $location, contactsSe
         };
       contactsService.postContact(formData);
 
-      alert("nouveau contact crée");
       contactsService.getContacts();
       $location.path('/contacts');
+      LxNotificationService.notify('Nouveau contact crée', undefined, undefined, undefined, undefined, undefined, 2 * 1000);
+
     }
     else{
       console.log("error");
@@ -20,6 +21,8 @@ myApp.controller('addContactCtrl' ,function($scope, $http, $location, contactsSe
 
   $scope.onClickCancel = function(){
      $location.path('/contacts');
+     LxNotificationService.notify('Annulé', undefined, undefined, undefined, undefined, undefined, 2 * 1000);
+
   }
 });
 

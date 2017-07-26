@@ -20,6 +20,10 @@ myApp.config(['$routeProvider', function ($routeProvider) {
     controller: 'categoriesCtrl',
     templateUrl: 'view/categories.html'
   })
+  .when('/add/categories',{
+    controller: 'addCategoriesCtrl',
+    templateUrl: 'view/addCategories.html'
+  })
   .otherwise({
     redirectTo: '/'
   });

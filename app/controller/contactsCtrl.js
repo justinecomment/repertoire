@@ -8,14 +8,13 @@ myApp.controller('contactsCtrl', function($scope, contactsService, $http, $windo
       $scope.contactList  = response.data;
    })
 
-
     $scope.editContact = function(){
         contactsService.getPersonne(this.contact);
         contactsService.savePersonne(this.contact);
     }
 
     $scope.searchContact = function(){
-        var stringToFind = $scope.searchForm.searchValue.$modelValue
+        var stringToFind = $scope.searchForm.searchValue.$modelValue;
         if(stringToFind != null){
             contactsService.searchPerson(stringToFind).then(function(response){
             $scope.contactList = response.data;})

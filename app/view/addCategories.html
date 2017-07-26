@@ -1,0 +1,12 @@
+<p>{{addCategories}}</p>
+
+<div class="content">
+    <form name="addCategorieForm" ng-submit="submitCategorie()" novalidate>
+        <lx-text-field lx-label="Nom de ma catégorie" lx-focus="true">
+            <input type="text" ng-model="categorieName" name="categorieName">
+        </lx-text-field>
+
+        <lx-button lx-type="raised" type="submit">Ajouter</lx-button>
+        <lx-button lx-color="orange" lx-type="raised" ng-click="onClickCancel()">Cancel</lx-button>   
+    </form>
+</div>

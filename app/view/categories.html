@@ -1,7 +1,19 @@
 <p>{{categories}}</p>
 
-<div class="content">
-    <div class="chip chip--is-deletable mr">
-         <span class="chip__label">{{famille}}</span>
+<div class=" p+ content">
+    <div flex-container="column" flex-align="space-between center" class="addCategorie">
+        <a href="#/add/categories">
+         <lx-button lx-type="fab" lx-color="blue" lx-size="l"><i class="mdi mdi-plus"></i></lx-button>
     </div>
+
+    <ul id="categorie" ng-repeat="categorie in categorieList">
+        <li>
+            <div class="chip chip--is-deletable mr">
+                <span class="chip__label">{{categorie.nom}}</span>
+            </div>
+        </li>
+    </ul>
+   
 </div>
+
+

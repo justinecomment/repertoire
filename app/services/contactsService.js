@@ -16,14 +16,12 @@ myApp.service('contactsService',function($http) {
     return personneSaved;
   }
 
-
   this.searchPerson = function(searchvalue){
     return $http.get(baseUrl + '/contacts.php?search=' + searchvalue).success(function(result){
       JSON.stringify(result.data);
     })
   }
-
-
+  
   this.getContacts = function(){
     return $http.get(baseUrl + '/contacts.php').success(function(result){
       JSON.stringify(result);

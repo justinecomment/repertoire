@@ -31,6 +31,19 @@ myApp.service('categoriesService',function($http) {
                 'Content-Type': 'application/json'
             }
         })
-    }
+    };
+
+    this.updateCategorie = function(categorieToUpdate){
+        return $http({
+            method : 'PUT',
+            url : baseUrl + '/categories.php?category=',
+            dataType: 'json',
+            data : categorieToUpdate,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+    };
+
 
 });

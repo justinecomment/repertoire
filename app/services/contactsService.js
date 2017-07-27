@@ -3,7 +3,6 @@ myApp.service('contactsService',function($http) {
   const baseUrl = 'http://localhost/repertoire';
   var personneSaved;
   
-
   this.getPersonne = function(personne){
      return personne;
   }

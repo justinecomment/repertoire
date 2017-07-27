@@ -6,23 +6,27 @@ myApp.config(['$routeProvider', function ($routeProvider) {
   })
   .when('/contacts', {
     controller: 'contactsCtrl',
-    templateUrl: 'view/contacts.html'
+    templateUrl: 'view/contacts/contacts.html'
   })
   .when('/add', {
     controller:'addContactCtrl',
-    templateUrl:'view/addContact.html'
+    templateUrl:'view/contacts/addContact.html'
   })
   .when('/edit',{
     controller: 'editContactCtrl',
-    templateUrl: 'view/editContact.html'
+    templateUrl: 'view/contacts/editContact.html'
   })
   .when('/categories',{
     controller: 'categoriesCtrl',
-    templateUrl: 'view/categories.html'
+    templateUrl: 'view/categories/categories.html'
   })
   .when('/add/categories',{
     controller: 'addCategoriesCtrl',
-    templateUrl: 'view/addCategories.html'
+    templateUrl: 'view/categories/addCategories.html'
+  })
+  .when('/edit/categories',{
+    controller: 'editCategoriesCtrl',
+    templateUrl: 'view/categories/editCategories.html'
   })
   .otherwise({
     redirectTo: '/'

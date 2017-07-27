@@ -5,15 +5,15 @@ myApp.service('categoriesService',function($http) {
 
     this.getCategorie = function(categorie){
         return categorie;
-    }
+    };
 
     this.saveCategorie = function(categorie){
         categorieSaved = categorie;
-    }
+    };
 
     this.getCategorieSaved = function(){
         return categorieSaved;
-    }
+    };
 
     this.getCategories = function(){
         return $http.get(baseUrl + '/categories.php').success(function(result){
@@ -42,6 +42,15 @@ myApp.service('categoriesService',function($http) {
             headers: {
                 'Content-Type': 'application/json'
             }
+        })
+    };
+
+    this.deleteCategorie = function(index){
+        return $http({
+            method  : 'DELETE',
+            url: baseUrl + '/categories.php?id=' + index,
+            data    : {"id":  index },
+            headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
     };
 

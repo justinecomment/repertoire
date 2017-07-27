@@ -5,21 +5,21 @@ myApp.service('contactsService',function($http) {
   
   this.getPersonne = function(personne){
      return personne;
-  }
+  };
 
   this.savePersonne = function(personne){
     personneSaved = personne;
-  }
+  };
 
   this.getPersonneSaved = function(){
     return personneSaved;
-  }
+  };
 
   this.searchPerson = function(searchvalue){
     return $http.get(baseUrl + '/contacts.php?search=' + searchvalue).success(function(result){
       JSON.stringify(result.data);
     })
-  }
+  };
   
   this.getContacts = function(){
     return $http.get(baseUrl + '/contacts.php').success(function(result){
@@ -38,7 +38,7 @@ myApp.service('contactsService',function($http) {
           'Content-Type': 'application/json'
         }
     })
-  }
+  };
 
   this.deleteContact = function(index){
     return $http({
@@ -47,5 +47,6 @@ myApp.service('contactsService',function($http) {
       data    : {"id":  index },
       headers : {'Content-Type': 'application/x-www-form-urlencoded'}
     })
-  }
+  };
+
 });

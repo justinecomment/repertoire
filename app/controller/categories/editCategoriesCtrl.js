@@ -21,7 +21,9 @@ myApp.controller('editCategoriesCtrl',function ($scope, $location, $http, catego
             })
             .error(function (data){
                 console.log("error");
+               
             });
         }
     }
+
 });

@@ -1,8 +1,7 @@
-myApp.controller('categoriesCtrl',function ($scope, categoriesService, $location, LxNotificationService) {
+myApp.controller('categoriesCtrl',function ($scope, categoriesService,$route, $location, LxNotificationService) {
       
         $scope.categoriesList = null;
 
-    
         categoriesService.getCategories().then(function(result){
             $scope.categoriesList = result.data;
         });
@@ -14,27 +13,26 @@ myApp.controller('categoriesCtrl',function ($scope, categoriesService, $location
             $scope.categoriesList  = result.data;
         });
         
-        
-
         $scope.editOrDelete= function(){
-            categoriesService.getCategorie(this.categories);
+            var infosCategorie = categoriesService.getCategorie(this.categories);
             categoriesService.saveCategorie(this.categories);
-            
+
             LxNotificationService.confirm('', 'Voulez-vous Editer ou supprimer?',
-            {
-                cancel: 'Supprimer',
-                ok    : 'Editer'
-            }, function(answer)
-            {
-                if (answer)
                 {
-                    $location.path('/edit/categories');
-                }
-                else
-                {
-                    LxNotificationService.error('Catégorie supprimée');
-                }
+                   cancel: 'Supprimer',
+                   ok    : 'Editer'
+                }, function(answer){
+                    if (answer){
+                        $location.path('/edit/categories');
+                    }
+                    else{
+                        categoriesService.deleteCategorie(infosCategorie.id);
+                        LxNotificationService.error('Catégorie supprimée');
+                        $route.reload();
+                    }
             });
-       }
+            
+       };
+
 
 });

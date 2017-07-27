@@ -1,16 +1,14 @@
  <p>{{edit}}</p>
 
-    <form name="editCategorie" ng-submit="UpdateCategorie()" novalidate>
-        <div class="tc-black-1 p+" flex-container="column" flex-align="space-between center" style="height: 150px">
-            <input hidden type="text" ng-model="id" placeholder={{categorieRecovered.id}}><br>
-            <input type="text" ng-model="category" name="category" placeholder="{{categorieRecovered.nom}}" required><br>
-            <span ng-if="editCategorie.$submitted" ng-show="editCategorie.nom.$pristine || editCategorie.nom.$error.required" class="error">La catégorie n'a pas changé</span><br>
+<form name="editCategorie" ng-submit="UpdateCategorie()" novalidate>
+    <div class="tc-black-1 p+" flex-container="column" flex-align="space-between center" style="height: 150px">
+        <input hidden type="text" ng-model="id" placeholder={{categorieRecovered.id}}><br>
+        <input type="text" ng-model="category" name="category" placeholder="{{categorieRecovered.nom}}" required><br>
+        <span ng-if="editCategorie.$submitted" ng-show="editCategorie.category.$pristine || editCategorie.category.$error.required" class="error">La catégorie n'a pas changé</span><br>
 
-             <div class="tc-black-1 p+" flex-container="row" flex-align="space-between center" style="width: 200px">
-                <lx-button lx-color="green" type="submit" >Editer</lx-button>
-                <lx-button lx-color="orange" lx-type="raised"  ng-click="onClickCancel()">Cancel</lx-button> 
-             </div>  
-        </div>
-
-    </form>
-</div>
+            <div class="tc-black-1 p+" flex-container="row" flex-align="space-between center" style="width: 200px">
+            <lx-button lx-color="green" type="submit" >Editer</lx-button>
+            <lx-button lx-color="orange" lx-type="raised"  ng-click="onClickCancel()">Cancel</lx-button> 
+            </div>  
+    </div>
+</form>

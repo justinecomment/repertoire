@@ -1,10 +1,10 @@
 myApp.controller('addContactCtrl' ,function($scope, $http, $location, contactsService, LxNotificationService){
   $scope.validateForm = function(){
-    if($scope.myAddForm.$valid == true){
+    if($scope.myAddForm.$valid === true){
       var formData = {
             'nom' :  $scope.nom,
             'prenom' : $scope.prenom,
-            'email' : $scope.email,
+            'email' : $scope.email
         };
       contactsService.postContact(formData);
 

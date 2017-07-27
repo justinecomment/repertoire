@@ -1,12 +1,17 @@
 myApp.controller('addCategoriesCtrl',function ($scope, $location, categoriesService) {
-      $scope.addCategories  = "Add Catégories";
-     
+
       $scope.submitCategorie = function(){
-        var categorieName = $scope.addCategorieForm.categorieName.$viewValue;
-        if($scope.addCategorieForm.$valid == true){
-            categoriesService.getCategorie(categorieName);
-            categoriesService.saveCategorie(categorieName);
+        if($scope.addCategorieForm.$valid === true){
+            var formData = {
+              'categorieName': $scope.categorieName
+            };
+
+            categoriesService.postCategorie(formData);
+            categoriesService.saveCategorie($scope.categorieName);
+            categoriesService.getCategorie($scope.categorieName);
+            categoriesService.getCategories();
             $location.path('/categories');
+            
         }
         else{
             console.log('error');

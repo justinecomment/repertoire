@@ -1,19 +1,22 @@
-<p>{{categories}}</p>
+<p>{{TitleCategories}}</p>
 
 <div class=" p+ content">
     <div flex-container="column" flex-align="space-between center" class="addCategorie">
         <a href="#/add/categories">
          <lx-button lx-type="fab" lx-color="blue" lx-size="l"><i class="mdi mdi-plus"></i></lx-button>
+        </a>
     </div>
 
-    <ul id="categorie" ng-repeat="categorie in categorieList">
-        <li>
-            <div class="chip chip--is-deletable mr">
-                <span class="chip__label">{{categorie.nom}}</span>
-            </div>
-        </li>
-    </ul>
-   
+    <div class="p+" flex-container="column" flex-align="space-between center" style="height: 110px">
+        <ul id="categorie" ng-repeat="categories in categoriesList">
+            <li>
+                <div class="chip mr">
+                    <span class="chip__label">{{categories.nom}}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
 </div>
 
 

@@ -15,7 +15,6 @@ myApp.controller('editCategoriesCtrl',function ($scope, $location, $http, catego
 
             $http.put('http://localhost/repertoire/categories.php?'+ data)
             .success(function (result){
-                 console.log(result);
                  categoriesService.getCategories();
                  $location.path('/categories');
             })

@@ -27,7 +27,6 @@ myApp.service('contactsService',function($http) {
     })
   };
 
-
   this.postContact = function(dataToPost){
     return $http({ 
         method: 'POST', 

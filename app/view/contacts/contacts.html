@@ -23,9 +23,9 @@
             <th>Supprimer</th>
         </tr>
         <tr ng-repeat="contact in contactList">
-            <td ng-model="nom">{{contact.nom}}</td>
-            <td ng-model="prenom">{{contact.prenom}}</td>
-            <td ng-model="email">{{contact.email}}</td>
+            <td ng-model="nom">{{contact.nom_contacts}}</td>
+            <td ng-model="prenom">{{contact.prenom_contacts}}</td>
+            <td ng-model="email">{{contact.email_contacts}}</td>
             <td ng-click="editContact(index)">
                 <a href="#/edit">
                     <lx-icon lx-id="pencil" lx-size="xs" lx-color="red" lx-type="flat"></lx-icon>

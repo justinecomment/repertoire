@@ -23,7 +23,7 @@ myApp.service('contactsService',function($http) {
   
   this.getContacts = function(){
     return $http.get(baseUrl + '/contacts.php').success(function(result){
-      JSON.stringify(result);
+      JSON.stringify(result.data);
     })
   };
 

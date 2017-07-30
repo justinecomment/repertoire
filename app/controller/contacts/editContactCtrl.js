@@ -5,7 +5,7 @@ myApp.controller('editContactCtrl', function($scope, $http, contactsService, $lo
      $scope.UpdateData = function () {
          if($scope.myEditForm.$valid == true){
             var data = $.param({
-                id: $scope.personne.id,
+                id: $scope.personne.id_contacts,
                 nom: $scope.nom,
                 prenom: $scope.prenom,
                 email: $scope.email
@@ -18,7 +18,7 @@ myApp.controller('editContactCtrl', function($scope, $http, contactsService, $lo
                 LxNotificationService.notify('Modifications enregistrées', undefined, undefined, undefined, undefined, undefined, 2 * 1000);
             })
             .error(function (data) {
-                console.log("error " + data);
+                console.log("error");
             });
         }
      }

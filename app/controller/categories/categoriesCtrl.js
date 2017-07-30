@@ -21,12 +21,12 @@ myApp.controller('categoriesCtrl',function ($scope, categoriesService,$route, $l
                 {
                    cancel: 'Supprimer',
                    ok    : 'Editer'
-                }, function(answer){
-                    if (answer){
+                }, function(editer){
+                    if (editer){
                         $location.path('/edit/categories');
                     }
                     else{
-                        categoriesService.deleteCategorie(infosCategorie.id);
+                        categoriesService.deleteCategorie(infosCategorie.id_categorie);
                         LxNotificationService.error('Catégorie supprimée');
                         $route.reload();
                     }

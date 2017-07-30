@@ -3,7 +3,6 @@ myApp.controller('contactsCtrl', function($scope, contactsService, $http, $windo
 
    $scope.contactList = null;
 
-
    contactsService.getContacts().then(function(response) {
       $scope.contactList  = response.data;
    })
@@ -17,7 +16,7 @@ myApp.controller('contactsCtrl', function($scope, contactsService, $http, $windo
         var stringToFind = $scope.searchForm.searchValue.$modelValue;
         if(stringToFind != null){
             contactsService.searchPerson(stringToFind).then(function(response){
-            $scope.contactList = response.data;})
+            $scope.contactList = response.data})
         }
         else{
             console.log('get contacts');
@@ -27,8 +26,8 @@ myApp.controller('contactsCtrl', function($scope, contactsService, $http, $windo
         }};
 
     $scope.deleteContact = function (){
-        var nomContact = this.contact.prenom + ' ' +  this.contact.nom;
-        var index = this.contact.id;
+        var nomContact = this.contact.prenom_contacts + ' ' +  this.contact.nom_contacts;
+        var index = this.contact.id_contacts;
 
         LxNotificationService.confirm('Voulez-vous supprimer ce contact?', nomContact,
         {

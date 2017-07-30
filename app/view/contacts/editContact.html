@@ -1,13 +1,13 @@
 <form name="myEditForm" ng-submit="UpdateData()" class="addForm" novalidate>
     <input hidden type="text" ng-model="id" placeholder={{personne.id}}><br>
 
-    <input type="text" ng-model="nom" name="nom" placeholder={{personne.nom}} required><br>
+    <input type="text" ng-model="nom" name="nom" placeholder={{personne.nom_contacts}} required><br>
     <span ng-if="myEditForm.$submitted" ng-show="myAddForm.nom.$pristine || myEditForm.nom.$error.required" class="error">Le nom n'a pas changé</span><br>
 
-    <input type="text" ng-model="prenom"  name="prenom" placeholder={{personne.prenom}} required><br>
+    <input type="text" ng-model="prenom"  name="prenom" placeholder={{personne.prenom_contacts}} required><br>
     <span ng-if="myEditForm.$submitted" ng-show="myAddForm.prenom.$pristine || myEditForm.prenom.$error.required" class="error">Le prenom n'a pas changé</span><br>
 
-    <input type="text" ng-model="email"  name="email" placeholder={{personne.email}} required><br>
+    <input type="text" ng-model="email"  name="email" placeholder={{personne.email_contacts}} required><br>
     <span ng-if="myEditForm.$submitted" ng-show="myAddForm.email.$pristine || myEditForm.email.$error.required" class="error">L'email n'a pas changé</span><br>
 
     <lx-button lx-color="green" type="submit" >Editer</lx-button>

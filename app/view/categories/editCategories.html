@@ -3,7 +3,7 @@
 <form name="editCategorie" ng-submit="UpdateCategorie()" novalidate>
     <div class="tc-black-1 p+" flex-container="column" flex-align="space-between center" style="height: 150px">
         <input hidden type="text" ng-model="id" placeholder={{categorieRecovered.id}}><br>
-        <input type="text" ng-model="category" name="category" placeholder="{{categorieRecovered.nom}}" required><br>
+        <input type="text" ng-model="category" name="category" placeholder="{{categorieRecovered.nom_categorie}}" required><br>
         <span ng-if="editCategorie.$submitted" ng-show="editCategorie.category.$pristine || editCategorie.category.$error.required" class="error">La catégorie n'a pas changé</span><br>
 
             <div class="tc-black-1 p+" flex-container="row" flex-align="space-between center" style="width: 200px">

@@ -1,7 +1,6 @@
 myApp.controller('editCategoriesCtrl',function ($scope, $location, $http, categoriesService) {
     $scope.edit = "editer";
     $scope.categorieRecovered = categoriesService.getCategorieSaved();
-    console.log($scope.categorieRecovered)
 
     $scope.onClickCancel = function(){
         $location.path('/categories');

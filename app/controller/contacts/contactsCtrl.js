@@ -19,7 +19,6 @@ myApp.controller('contactsCtrl', function($scope, contactsService, $http, $windo
             $scope.contactList = response.data})
         }
         else{
-            console.log('get contacts');
             contactsService.getContacts().then(function(response) {
                 $scope.contactList  = response.data;
             })

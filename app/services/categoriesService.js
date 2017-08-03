@@ -53,6 +53,5 @@ myApp.service('categoriesService',function($http) {
             headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
     };
-
-
+   
 });

@@ -48,4 +48,17 @@ myApp.service('contactsService',function($http) {
     })
   };
 
+  this.joinCategorie = function(categorieSelected){
+        return $http({
+            method : 'PUT',
+            url : baseUrl + '/contacts.php?join=',
+            dataType: 'json',
+            data : categorieSelected,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+    }
+
+
 });

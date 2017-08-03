@@ -3,19 +3,24 @@ myApp.controller('contactsCtrl', function($scope, contactsService, categoriesSer
 
    $scope.contactList = null;
    $scope.categoriesList = null;
+
    
    categoriesService.getCategories().then(function(response){
       $scope.categoriesList = response.data;
+      console.log($scope.categoriesList);
    });
-   
+
+
    contactsService.getContacts().then(function(response) {
       $scope.contactList  = response.data;
+      console.log($scope.contactList);
    });
 
     $scope.editContact = function(){
         contactsService.getPersonne(this.contact);
         contactsService.savePersonne(this.contact);
     };
+
 
     $scope.searchContact = function(){
         var stringToFind = $scope.searchForm.searchValue.$modelValue;
@@ -29,6 +34,7 @@ myApp.controller('contactsCtrl', function($scope, contactsService, categoriesSer
             })
         }
     };
+
 
     $scope.deleteContact = function (){
         var nomContact = this.contact.prenom_contacts + ' ' +  this.contact.nom_contacts;
@@ -57,5 +63,11 @@ myApp.controller('contactsCtrl', function($scope, contactsService, categoriesSer
             }
         })
     };
+
+
+    $scope.chooseCategorie = function(){
+        var data =  {'join' : this.selectCategorie, 'id_contact' : this.contact.id_contacts};
+        contactsService.joinCategorie(data);
+    }
 
 });

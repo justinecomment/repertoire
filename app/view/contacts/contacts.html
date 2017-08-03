@@ -19,6 +19,7 @@
             <th>Nom</th>
             <th>Prenom</th>
             <th>Emails</th>
+            <th>Categorie</th>
             <th>Editer</th>
             <th>Supprimer</th>
         </tr>
@@ -26,6 +27,11 @@
             <td ng-model="nom">{{contact.nom_contacts}}</td>
             <td ng-model="prenom">{{contact.prenom_contacts}}</td>
             <td ng-model="email">{{contact.email_contacts}}</td>
+            <td >
+                <select name="selectCategorie">
+                    <option ng-repeat="categories in categoriesList">{{categories.nom_categorie}}</option>
+                </select>
+            </td>
             <td ng-click="editContact(index)">
                 <a href="#/edit">
                     <lx-icon lx-id="pencil" lx-size="xs" lx-color="red" lx-type="flat"></lx-icon>

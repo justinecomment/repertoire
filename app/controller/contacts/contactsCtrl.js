@@ -1,16 +1,21 @@
 
-myApp.controller('contactsCtrl', function($scope, contactsService, $http, $window, $location, LxNotificationService ) {
+myApp.controller('contactsCtrl', function($scope, contactsService, categoriesService, $http, $window, $location, LxNotificationService ) {
 
    $scope.contactList = null;
-
+   $scope.categoriesList = null;
+   
+   categoriesService.getCategories().then(function(response){
+      $scope.categoriesList = response.data;
+   });
+   
    contactsService.getContacts().then(function(response) {
       $scope.contactList  = response.data;
-   })
+   });
 
     $scope.editContact = function(){
         contactsService.getPersonne(this.contact);
         contactsService.savePersonne(this.contact);
-    }
+    };
 
     $scope.searchContact = function(){
         var stringToFind = $scope.searchForm.searchValue.$modelValue;
@@ -22,7 +27,8 @@ myApp.controller('contactsCtrl', function($scope, contactsService, $http, $windo
             contactsService.getContacts().then(function(response) {
                 $scope.contactList  = response.data;
             })
-        }};
+        }
+    };
 
     $scope.deleteContact = function (){
         var nomContact = this.contact.prenom_contacts + ' ' +  this.contact.nom_contacts;
@@ -49,7 +55,7 @@ myApp.controller('contactsCtrl', function($scope, contactsService, $http, $windo
             {
                 LxNotificationService.error('Aucun contact n\'a été supprimé');
             }
-        });
-    }
+        })
+    };
 
 });

@@ -17,7 +17,7 @@ myApp.service('categoriesService',function($http) {
 
     this.getCategories = function(){
         return $http.get(baseUrl + '/categories.php').success(function(result){
-            JSON.stringify(result);
+            JSON.stringify(result.data);
         })
     };
 

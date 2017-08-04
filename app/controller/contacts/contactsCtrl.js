@@ -7,13 +7,11 @@ myApp.controller('contactsCtrl', function($scope, contactsService, categoriesSer
    
    categoriesService.getCategories().then(function(response){
       $scope.categoriesList = response.data;
-      console.log($scope.categoriesList);
    });
 
 
    contactsService.getContacts().then(function(response) {
       $scope.contactList  = response.data;
-      console.log($scope.contactList);
    });
 
     $scope.editContact = function(){
@@ -66,8 +64,19 @@ myApp.controller('contactsCtrl', function($scope, contactsService, categoriesSer
 
 
     $scope.chooseCategorie = function(){
-        var data =  {'join' : this.selectCategorie, 'id_contact' : this.contact.id_contacts};
-        contactsService.joinCategorie(data);
+        var data = $.param({
+            nom_cat : this.selectCategorie.nom_categorie, 
+            id_contact: this.contact.id_contacts
+        });
+
+        $http.put('http://localhost/repertoire/contacts.php?' + data)
+        .success(function(){
+            contactsService.getContacts();
+        })
+        .error(function (data){
+            console.log("error");
+        });
+
     }
 
 });

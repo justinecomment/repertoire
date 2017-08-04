@@ -14,13 +14,12 @@ myApp.controller('editCategoriesCtrl',function ($scope, $location, $http, catego
             });
 
             $http.put('http://localhost/repertoire/categories.php?'+ data)
-            .success(function (result){
+            .success(function(){
                  categoriesService.getCategories();
                  $location.path('/categories');
             })
             .error(function (data){
                 console.log("error");
-               
             });
         }
     }

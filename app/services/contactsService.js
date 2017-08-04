@@ -59,6 +59,4 @@ myApp.service('contactsService',function($http) {
             }
         })
     }
-
-
 });

@@ -1,1 +1,17 @@
-<p>J'ai <span>{{ totalEmail }}</span> contacts</p>
+<p>J'ai <span>{{ totalContacts }}</span> contacts et <span>{{ totalCategories }}</span> Catégories.</p>
+
+
+<div class="p+ content" ng-repeat="categorie in categories"  ng-show="!$first">
+    <div class="card" style="width:500px">
+        <div class="p+">
+            <strong class="fs-headline display-block">{{categorie.nom_categorie}}</strong>
+ 
+            <div class="paragraph fs-body-1 mt+" ng-repeat="contact in contacts | filter: {nom_categorie: categorie.nom_categorie}">
+                <p>
+                    {{contact.nom_contacts}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+

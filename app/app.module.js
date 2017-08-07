@@ -1,2 +1,2 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngResource', 'lumx']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngResource', 'lumx', 'angular.filter']);
 
